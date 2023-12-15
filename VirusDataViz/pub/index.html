@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Covid Data Visualizations </title>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+    
+
+    
+    <div style="text-align: center;">
+        <h1> Covid Data Visualizations </h1>
+        <div id="d3test2" />
+        <! to have display above buttons use d3test2>
+
+    </div>
+         
+    
+    <! Button styles below>
+    <! All styles should be done below here before other code or make a css file>
+    
+    <style>
+    .barchart {
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: #7d2727;
+      border: 2px solid #c20802;
+      border-radius: 5px;
+      position: fixed;
+      margin-top: -80px;
+      left: 25px;
+      width: 200px;
+      height: 50px;
+    }
+      .reload {
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: red;
+      border: 2px solid #c20802;
+      border-radius: 5px;
+      position: fixed;
+      margin-top: 285px;
+      left: 25px;
+      width: 200px;
+      height: 50px;
+    }
+    .bubble {
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: #7d4e27;
+      border: 2px solid #c27202;
+      border-radius: 5px;
+      position: fixed;
+      margin-top: 5px;
+      left: 25px;
+        width: 200px;
+      height: 50px;
+    }
+    .theHeat {
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: #2e277d;
+      border: 2px solid blue;
+      border-radius: 5px;
+      position: fixed;
+      margin-top: 230px;
+      left: 25px;
+      width: 200px;
+      height: 50px;
+    }
+    .scat {
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: #7d7927;
+      border: 2px solid #c2b502;
+      border-radius: 5px;
+      position: fixed;
+      margin-top: 90px;
+      left: 25px;
+      width: 200px;
+      height: 50px;
+        
+    }
+    .sun {
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color:  #417d27;
+      border: 2px solid #02ad13;
+      border-radius: 5px;
+      position: fixed;
+      margin-top: 175px;
+      left: 25px;
+      width: 200px;
+      height: 50px;
+     
+    }
+    .dropdowncustom{
+        
+        position: fixed;
+
+        background-color: purple;
+        border: 2px solid #6602ad;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        width:50px;
+        left:30px;
+        margin-top: 375px;
+        height: 25px;
+        font-size:15px;
+        width:195px;
+        
+        
+        
+        
+        }
+        .dropdowncustom2{
+        position: fixed;
+        background-color: #7d2727;
+        border: 2px solid #c20802;
+        color: white;
+        width:195px;
+        cursor: pointer;
+        margin-top: -25px;
+        height: 25px;
+        font-size:15px;
+        left: 30px;
+        
+        
+        
+        }
+        .dropdowncustom3{
+        position: fixed;
+        background-color: #7d4e27;
+        border: 2px solid #c27202;
+        color: #f4f4f4;
+        width:195px;
+        cursor: pointer;
+        left:30px;
+        margin-top: 60px;
+        height: 25px;
+        font-size:15px;
+
+
+        
+        
+        
+        
+        }
+        .dropdowncustom4{
+        
+        position: fixed;
+        background-color: #7d7927;
+        border: 2px solid #c2b502;
+        color: #f4f4f4;
+        width:150px;
+        cursor: pointer;
+        left:30px;
+        margin-top: 145px;
+        height: 25px;
+        font-size:15px;
+        width:195px;
+            
+        
+        
+        
+        
+        }
+    
+        
+        
+body {
+  background-color: #262626;
+    color: #d8d8d8;
+}
+    
+        
+        
+        
+        
+    
+    </style>
+    
+    
+    
+    <!end of button styles>
+      
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <div id="d3test4" class = "fixed" />
+    <! to have display below buttons use d3test>
+
+    
+    
+    
+    <!All code to display vizs below here>
+    
+    
+    
+    <form>
+        
+    <!creates dropdown for multiple display selection>
+
+        <label for = "selectmulti" > Click a button to create the corresponding display.   <br> Created by: Kole Barbetti, Brian Mintah, Tyler Potsko, and Deven Schwartz   </label>
+        <select name = "multi" id = "multiValue" class = 'dropdowncustom'  >
+            <option value = 1 > Multiple Displays ON </option>
+            <option value = 0 > Multiple Displays OFF </option>
+        </select>
+        
+    </form>
+    
+     <label for = "clicker" style= 'color: #9cb8a4' style= 'margin-top: 30px' style= 'width: 30px' style= 'font-size: 13px' > Now click a button!</label>
+   
+    
+    <form>
+        <!clears any vizs on screen>
+        <button class = "reload" id = "reloadDisplay" > Clear Displays </button>
+    </form>
+
+    
+    <script>
+        //this script is not needed but I left it here to eaisly change later
+        //specifically it should clear the d3test container not reload the whole website if possible
+        const reloadDisplay = document.getElementById('reloadDisplay')
+
+            reloadDisplay.addEventListener('click',getInfo)
+
+            async function getInfo(e){
+
+                                                e.preventDefault()
+
+            const reload = document.getElementById('reloadBargraph')
+
+            document.getElementById("d3test").remove();
+
+            var g = document.createElement('div');
+            g.setAttribute("id", "d3test");
+
+            var myContainer = document.getElementById("d3test9");
+            myContainer.appendChild(g);
+        }
+
+    </script>
+
+    
+    
+    
+    
+    <form>
+        
+        <!creates 2 buttons for a get and post and a dropdown>
+        <!This is for the bargraph buttons>
+
+        <button class = "barchart" id = "getBargraphData" > Barchart </button>
+        
+        
+    
+    </form>
+    <form>
+        
+        
+        
+        <select name = "bargraphXaxisChoice" id = "xValue" class = 'dropdowncustom2' >
+            <option value = "cases" > USA Cases Total </option>
+            <option value = "cases_2021" >USA Deaths Total </option>
+            <option value = "pa_cases" >PA Cases Total </option>
+            <option value = "pa_deaths" >PA Deaths Total </option>
+        </select>
+        
+    
+    </form>
+    
+    
+    
+    
+    
+    <!div used to append to in reloads probs dont remove >
+    <div id="d3test9" />
+
+    
+    
+    
+    
+            
+    <!needed to access the code >
+    <!DO NOT DELETE unless changing file structure>
+    <script type = "text/javascript" > src = "/js/bargraph.js" </script>
+
+    <!needed to access the bargraph code >
+    <script src = "js/bargraph.js" > </script>
+    
+    <script>
+        
+        const displayBargraph = document.getElementById('getBargraphData')
+        
+        //change depending on the request 
+        const bragraphDataRequest = 'http://localhost:5550/barchartData'
+        const bragraphDataRequest2 = 'http://localhost:5550/barchartData2'
+
+        
+        displayBargraph.addEventListener('click',getInfo)
+        async function getInfo(e){
+                                    e.preventDefault()
+
+            if (multiValue.value == 0){
+                document.getElementById("d3test").remove();
+                
+                var g = document.createElement('div');
+                g.setAttribute("id", "d3test");
+                
+                var myContainer = document.getElementById("d3test9");
+                myContainer.appendChild(g);
+
+            //eoif
+            }
+
+            //prevents default action of the button (reload page)
+            const res = await fetch(bragraphDataRequest, 
+                                    {
+                                    method: 'GET'
+                                    })
+            //log reecieved data
+            console.log(res)
+            //set the data to the json being sent
+            const bargraphLoadData = await res.json()
+            
+            //second data file used
+            const res2 = await fetch(bragraphDataRequest2, 
+                                    {
+                                    method: 'GET'
+                                    })
+            //log
+            console.log(res2)
+            //set the data to the json being sent
+            const bargraphLoadData2 = await res2.json()
+            //get the json that was sent 
+            
+            //call the display2 function inside of the barchart.js file 
+            //needs the data ,  add additional parameters to of what x axis to use.
+            display2(bargraphLoadData, bargraphLoadData2,  xValue.value)
+            //to change to button
+            //        <button onclick="display2(bargraphLoadData,  deaths)">Variable 2</button>
+
+        }
+        //end of get
+        
+        //end of script
+    </script>
+
+    
+    
+    
+    
+    
+
+    
+    <!Bubble info>
+
+    
+    <form>
+        
+        <!creates the button and dropdowns for bubble display>
+        <!Bubble vis>
+
+        <button class = "bubble" id = "getBubbleData" > Bubble Display</button>
+        
+
+        
+    </form>
+    <form>
+       
+        
+        <select name = "bubbleXaxisChoice" id = "xValueBubble" class = 'dropdowncustom3' >
+            <option value = "cases" > County Cases </option>
+            <option value = "deaths" > County Deaths </option>
+        </select>
+        
+    </form>
+   
+    <!Bubble file>
+    <script src = "js/bubble.js" > </script>
+    
+    <script>
+        
+        const test = document.getElementById("d3test2");
+        test.remove();
+        // sets the vars to the id so they can be manipulated
+        const displayBubbles = document.getElementById('getBubbleData')
+        //the request is being sent to this '/bubbleData'
+        //change depending on the request 
+        const bubbleDataRequest = 'http://localhost:5550/bubbleData'
+        
+        displayBubbles.addEventListener('click',getInfo)
+        async function getInfo(e){
+            e.preventDefault()
+            
+            if (multiValue.value == 0){
+                document.getElementById("d3test").remove();
+                
+                var g = document.createElement('div');
+                g.setAttribute("id", "d3test");
+                
+                var myContainer = document.getElementById("d3test9");
+                myContainer.appendChild(g);
+
+            }
+            //prevents default action of the button(reload page)
+            const res = await fetch(bubbleDataRequest, 
+                                    {
+                                    method: 'GET'
+                                    })
+            console.log(res)
+            //set the data to the json being sent
+            const bubbleLoadData = await res.json()
+            //put the json in the text box// broken can be removed at some point 
+            
+            //call the display function inside of the bubble.js file 
+            //needs the data and any additional parms specified
+            displaybubbles(bubbleLoadData, xValueBubble.value)
+            
+        }
+        
+    //end of script for bubbles
+    </script>
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!heatmap info>
+
+    
+    
+      
+    
+    <form>
+        
+        <!creates the vis data>
+        <!hatmap vis>
+
+        <button class = "theHeat" id = "getHeatData" > Heatmap Display </button>
+        
+    </form>
+   
+    <!file dir>
+    <script src = "js/heatmap.js" > </script>
+    
+   
+    <script>
+        
+        // sets the vars to the id so they can be manipulated
+        const displayHeat = document.getElementById('getHeatData')
+        
+        //the request is being sent to this '/bubbleData'
+        //change depending on the request 
+        const heatDataRequest = 'http://localhost:5550/heatmapData'
+        
+        displayHeat.addEventListener('click',getInfo)
+        async function getInfo(e){
+            e.preventDefault()
+            if (multiValue.value == 0){
+                document.getElementById("d3test").remove();
+                
+                var g = document.createElement('div');
+                g.setAttribute("id", "d3test");
+                
+                var myContainer = document.getElementById("d3test9");
+                myContainer.appendChild(g);
+
+            }
+            //prevents default action of the button(reload page)
+            const res = await fetch(heatDataRequest, 
+                                    {
+                                    method: 'GET'
+                                    })
+            console.log(res)
+            //set the data to the json being sent
+            const heatLoadData = await res.json()
+            //put data in json 
+            
+            //call the display function inside of the heatmap.js file 
+            //needs the data and any additional parms specified
+            displayHeatmap(heatLoadData)
+            
+        }
+        
+    //end of script for heat
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+        <!scatterplot info>
+
+    
+    
+    
+    
+    <form>
+        
+        <!creates the button for scatterplot and dropdowns>
+        <!scatterplot vis>
+
+        <button class = "scat" id = "getScatterData" > Scatterplot Display</button>
+        
+       
+            
+      
+        
+    </form>
+        <form>
+     
+        
+        <select name = "scatterXaxisChoice" id = "xValueScatter" class = 'dropdowncustom4' >
+            <option value = "cases" > College Cases </option>
+            <option value = "cases_2021" > Prison Cases </option>
+            <option value = "college" > Local College Cases </option>
+            <option value = "prison" > Local Prison Cases </option>
+            
+        </select>
+        
+    </form>
+   
+    <!scatterplot file>   
+    <script src = "js/scatter.js" > </script>
+    
+   
+    <script>
+        
+        // sets the vars to the id so they can be manipulated
+        const displayScatter = document.getElementById('getScatterData')
+
+        //change depending on the request 
+        const scatterDataRequest = 'http://localhost:5550/scatterplotData'
+        const scatterDataRequest2 = 'http://localhost:5550/scatterplotData2'
+        const scatterlocalcollege = 'http://localhost:5550/scatterHell'
+        const scatterlocalprison = 'http://localhost:5550/ScatterLesserHell'
+
+        
+        displayScatter.addEventListener('click',getInfo)
+        async function getInfo(e){
+            e.preventDefault()
+            if (multiValue.value == 0){
+                document.getElementById("d3test").remove();
+                
+                var g = document.createElement('div');
+                g.setAttribute("id", "d3test");
+                
+                var myContainer = document.getElementById("d3test9");
+                myContainer.appendChild(g);
+
+            }
+            //prevents default action of the button(reload page)
+            const res = await fetch(scatterDataRequest, 
+                                    {
+                                    method: 'GET'
+                                    })
+            const res2 = await fetch(scatterDataRequest2, 
+                                    {
+                                    method: 'GET'
+                                    })
+            const res3 = await fetch(scatterlocalcollege, 
+                                    {
+                                    method: 'GET'
+                                    })
+            const res4 = await fetch(scatterlocalprison, 
+                                    {
+                                    method: 'GET'
+                                    })
+            
+            console.log(res)
+            //set the data to the json being sent
+            const scatterLoadData = await res.json()
+            const scatterLoadData2 = await res2.json()
+            const scatterLoadData3 = await res3.json()
+            const scatterLoadData4 = await res4.json()
+
+            //put data in json 
+            
+            //call the display function inside of the heatmap.js file 
+            //needs the data and any additional parms specified
+            displayScatterplot(scatterLoadData, scatterLoadData2, scatterLoadData3, scatterLoadData4, xValueScatter.value)
+            
+        }
+        
+    //end of script for scatterplot
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <!sunburst info>
+
+    
+    
+    <form>
+        
+        <!creates the button >
+        <!sunburst vis>
+
+        <button class = "sun" id = "getSunData" > Sunburst Display</button>
+        
+    </form>
+   
+   
+    <script src = "js/circle.js" > </script>
+    
+   
+    <script>
+        
+        // sets the vars to the id so they can be manipulated
+        const displaySun = document.getElementById('getSunData')
+        
+        //the request is being sent to this '/bubbleData'
+        //change depending on the request 
+        const sunDataRequest = 'http://localhost:5550/sunburstData'
+        const sundata1 = 'http://localhost:5550/ScatterLesserHell'
+        const sundata2 = 'http://localhost:5550/scatterHell'
+        
+        displaySun.addEventListener('click',getInfo)
+        async function getInfo(e){
+            e.preventDefault()
+            if (multiValue.value == 0){
+                document.getElementById("d3test").remove();
+                
+                var g = document.createElement('div');
+                g.setAttribute("id", "d3test");
+                
+                var myContainer = document.getElementById("d3test9");
+                myContainer.appendChild(g);
+
+            }
+            //prevents default action of the button(reload page)
+            const res = await fetch(sunDataRequest, 
+                                    {
+                                    method: 'GET'
+                                    });
+            const res2 = await fetch(sundata1, 
+                                    {
+                                    method: 'GET'
+                                    });
+           
+           
+            const res3 = await fetch(sundata2, 
+                                    {
+                                    method: 'GET'
+                                    })
+            
+            console.log(res)
+            //console.log(res2)
+            //console.log(res3)
+
+            
+            //set the data to the json being sent
+            const sunLoadData = await res.json()
+            const sundataOne = await res2.json()
+            const sundataTwo = await res3.json()
+            //put data in json 
+            
+            //call the display function inside of the heatmap.js file 
+            //needs the data and any additional parms specified
+            circleDisplay(sunLoadData, sundataOne, sundataTwo)
+            
+        }
+        
+    //end of script for scatterplot
+    </script>
+    
+    
+    
+    
+    <div id="d3test" />
+
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    <! Exampe reload of database.>
+    
+    <script>
+        //put above script to access
+        //<button  id = "redotest" > testing </button> 
+
+        //uncomment code to access all with ('//$')
+        
+        // grabs the button
+        //$const REDO = document.getElementById('redotest')
+            
+        //endpoint to look at
+        //$const newdata = 'http://localhost:5550/redotest'
+
+        //$REDO.addEventListener('click',getInfo)
+        //$async function getInfo(e){
+            //$e.preventDefault()
+            //prevents default action of the button(reload page)
+            //$const res = await fetch(newdata, 
+            //$                     {
+            //$                     method: 'GET'
+            //$                     })
+            //$console.log(res)
+            //set the data changed to the json being sent that way it can be loged by client
+            //$const reloadtest = await res.json()
+        //$}   
+    
+        //end of script for scatterplot
+    </script>
+    
+    
+    
+    
+    
+    <! END OF TESTING>
+    
+    
+</body>
+</html>
