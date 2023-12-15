@@ -2,4 +2,4 @@
 public project saves
 
 
-Collection of projects set to public view
+Collection of a few projects set to public view
